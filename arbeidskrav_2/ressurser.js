@@ -94,13 +94,23 @@ const resources = [
     ],
   },
 ]
-const nav = document.getElementById('nav')
-nav.innerHTML = `<nav><ul>`
-resources.map(
-  element =>
-    nav.innerHTML += `    
-    <li><a href="">${element.category}</a></li>
-`)
-nav.innerHTML += `</nav></ul>`
+// ID'er
+const menu = document.getElementById('menu')
+const content = document.getElementById('content')
+
+//mapper ut hvert element i arrayen
+resources.map(element =>{
+  const menuItem = document.createElement('button')
+  //Inne i denne knappen setter den teksten til å være = elementets kategori
+  menuItem.innerText = element.category
+  //En onclick arrow-funksjon som kjører displayContent funksjonen når kanppen er trykket
+  menuItem.onclick = () => displayContent()
+  //Etter HTML elementet er ferdig definert blir det lagt til i menyen
+  menu.appendChild(menuItem)
+  //Denne funksjonen kjører ved en click event, og viser spesifik informasjon tilknyttet knappen man trykket på
+  function displayContent() {
+    content.innerHTML = `<h2>${element.category}</h2><p>${element.text}</p>`;
+  }
+})
 
 

@@ -99,7 +99,7 @@ const menu = document.getElementById('menu')
 const content = document.getElementById('content')
 
 //mapper ut hvert element i arrayen
-resources.map(element =>{
+resources.map((element) => {
   const menuItem = document.createElement('button')
   //Inne i denne knappen setter den teksten til å være = elementets kategori
   menuItem.innerText = element.category
@@ -109,8 +109,16 @@ resources.map(element =>{
   menu.appendChild(menuItem)
   //Denne funksjonen kjører ved en click event, og viser spesifik informasjon tilknyttet knappen man trykket på
   function displayContent() {
-    content.innerHTML = `<h2>${element.category}</h2><p>${element.text}</p>`;
+    content.innerHTML = `<h2>${element.category}</h2><p>${element.text}</p>`
+    // SOURCES
+    const links = document.getElementById('links')
+    //oppretter liste og nullstiller liste
+    links.innerHTML = `<ul>`
+    //Mapper ut listeelementer for hver kilde
+    element.sources.map(
+      (source) => (links.innerHTML += `<li><a href="${source.url}">${source.title}</a></li>`)
+    )
+    //Avslutter liste
+    links.innerHTML += `</ul>`
   }
 })
-
-

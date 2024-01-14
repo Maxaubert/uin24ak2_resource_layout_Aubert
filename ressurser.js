@@ -109,6 +109,7 @@ resources.map((element) => {
   menu.appendChild(menuItem)
   //Denne funksjonen kjører ved en click event, og viser spesifik informasjon tilknyttet knappen man trykket på
   function displayContent() {
+
     content.innerHTML = `<h2>${element.category}</h2><p>${element.text}</p>`
     // SOURCES
     const links = document.getElementById('links')
@@ -121,4 +122,18 @@ resources.map((element) => {
     //Avslutter liste
     links.innerHTML += `</ul>`
   }
+  
+  //Lger active class
+  //Lager eventlistener for knappen
+  menuItem.addEventListener('click', function (event){
+    //Tar vekk eventuelle 'active' klasser fra andre meny-knapper
+    const allButtons = document.querySelectorAll('button')
+    //Lager en forEach som tar vekk klassen fra alle knapper
+    allButtons.forEach(button => button.classList.remove('active'))
+    //Legger til klassen på den valgte knappen
+    menuItem.classList.add('active')
+  })
+
 })
+
+

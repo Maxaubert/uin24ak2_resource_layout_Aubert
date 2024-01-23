@@ -11,7 +11,7 @@ body{
     margin:9vw auto;
     display: flex;
     flex-wrap: wrap;
-    max-width:60%;
+    max-width:80%;
 }
 #menu {
     display: flex;
@@ -59,14 +59,14 @@ body{
     color: var(--deepBlue);
     background-color: var(--white);
 }
-@media (max-width: 1350px) {
+
+@media (max-width: 900px){
     body{
-        max-width: 80%;
+        max-width: 100%;
     }
 }
 
-
-@media (max-width: 800px) {
+ @media (max-width: 640px) {
 
     body {
         display: flex;
@@ -76,14 +76,14 @@ body{
     #menu {
         flex-direction: column;
         width: 100%;
-
+        margin:0;
     }
     #menu button {
+        padding-left: 0;
+        padding-right: 0;
         width: 100%;
-        margin-bottom: 1px;
-    }
-    #menu button :last-child {
-        margin-bottom: 0;
+        margin:0;
+        border-bottom: solid 1px var(--white);
     }
     #article-box {
         width: 100%;
@@ -91,7 +91,7 @@ body{
     }
     #content{
         padding: 0;
-    }
+    } 
 }
 
 
